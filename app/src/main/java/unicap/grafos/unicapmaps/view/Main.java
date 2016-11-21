@@ -61,10 +61,6 @@ public class Main extends AppCompatActivity {
         this.toolbar = toolbar;
         toolbar.setSubtitle("Busca Dijsktra");
 
-        InfoBlocos info = new InfoBlocos();
-        ArrayList<String[]> infoBlocos = info.getInfoBlocos();
-
-
         context = getApplicationContext();
         grafoController = new GrafoController();
 
