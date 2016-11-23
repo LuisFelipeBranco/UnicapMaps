@@ -10,6 +10,7 @@ public class InfoBlocos {
     private ArrayList<String[]> infoBlocos;
 
     public InfoBlocos(){
+        infoBlocos = new ArrayList();
         infoBlocos.add(A);      //0  A
         infoBlocos.add(B);      //1  B
         infoBlocos.add(C);      //2  C
@@ -34,6 +35,37 @@ public class InfoBlocos {
         infoBlocos.add(V);      //21 V = Jardim
         infoBlocos.add(W);      //22 W
         infoBlocos.add(G4);     //23 G4
+    }
+
+    private static String[] nomesBlocos = {
+            "Bloco A",
+            "Bloco B",
+            "Bloco C",
+            "Bloco D",
+            "Bloco E",
+            "Bloco F",
+            "Bloco G",
+            "Capela",
+            "Bloco I",
+            "Bloco J",
+            "Bloco K",
+            "Bloco L",
+            "Biblioteca",
+            "Bloco N",
+            "Bloco O",
+            "Estacionamento professores",
+            "Bloco Q",
+            "Bloco R",
+            "Estacionamento estudantes",
+            "Bloco T",
+            "Quadra de esportes",
+            "Jardim",
+            "Bloco W",
+            "Bloco G4"
+    };
+
+    public static String[] getNomesBlocos(){
+        return nomesBlocos;
     }
 
     public ArrayList<String[]> getInfoBlocos(){
@@ -197,7 +229,7 @@ public class InfoBlocos {
     private String[] Q = {};
 
     private String[] R = {
-        "Salas 005, 009 - SERDAE (Setor de Processamento de infoBlocos)",
+        "Salas 005, 009 - SERDAE (Setor de Processamento de Dados)",
         "Sala 011 - SERD (Setor de Emissão e Registro de Diplomas)",
         "Sala 012 - SEAD (Setor de Admissão)",
         "Sala 017 - SEPED (Setor de Protocolo)",

@@ -159,7 +159,7 @@
                 android:layout_centerHorizontal="true"
                 />
 
-            <LinearLayout
+            <RelativeLayout
                 android:id="@+id/lista_busca_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,6 +168,7 @@
                 android:paddingBottom="70dp"
                 android:visibility="invisible">
                 <TextView
+                    android:id="@+id/header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
@@ -178,14 +179,29 @@
                     android:textAllCaps="true"
 
                     android:padding="3dp"/>
+                <TextView
+                    android:layout_below="@id/header"
+                    android:id="@+id/nenhum_resultado"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="16dp"
+                    android:textColor="@color/vermelho"
+                    android:text="Nenhum resultado encontrado!"
+                    android:background="@color/branco"
+                    android:textAllCaps="true"
+                    android:visibility="invisible"
+                    android:padding="3dp"/>
                 <ListView
                     android:id="@+id/listaBusca"
+                    android:layout_below="@id/header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/branco"
                     >
                 </ListView>
-            </LinearLayout>
+            </RelativeLayout>
 
         </RelativeLayout>
 

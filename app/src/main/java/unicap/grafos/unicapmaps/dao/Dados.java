@@ -35,39 +35,7 @@ class Dados {
           // A B C D E F G H I J K L M N O P Q R S T U V W G4
     };
 
-    private static String[] nomesBlocos = {
-            "Bloco A",
-            "Bloco B",
-            "Bloco C",
-            "Bloco D",
-            "Bloco E",
-            "Bloco F",
-            "Bloco G",
-            "Capela",
-            "Bloco I",
-            "Bloco J",
-            "Bloco K",
-            "Bloco L",
-            "Biblioteca",
-            "Bloco N",
-            "Bloco O",
-            "Estacionamento professores",
-            "Bloco Q",
-            "Bloco R",
-            "Estacionamento estudantes",
-            "Bloco T",
-            "Quadra de esportes",
-            "Jardim",
-            "Bloco W",
-            "Bloco G4"
-        };
 
-
-
-    
-    static String[] getNomesBlocos(){
-        return nomesBlocos;
-    }
 
     public static int coordenadasVertices[][] = {
             { 587,810},  //0  A

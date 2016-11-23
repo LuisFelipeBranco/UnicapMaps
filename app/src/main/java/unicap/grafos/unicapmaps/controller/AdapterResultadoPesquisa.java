@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,7 +29,7 @@ public class AdapterResultadoPesquisa extends ArrayAdapter{
     private Rota rota;
     private int alvo;
     private Activity activity;
-    private LinearLayout listaBuscaContainer;
+    private RelativeLayout listaBuscaContainer;
     private ViewGroup rootView;
     EditText editTextSource;
 
@@ -39,12 +40,20 @@ public class AdapterResultadoPesquisa extends ArrayAdapter{
         this.rota = rota;
         this.alvo = alvo;
         this.editTextSource = editTextSource;
+        rootView = (ViewGroup) editTextSource.getRootView();
+
+        TextView nenhumResultado = (TextView) rootView.findViewById(R.id.nenhum_resultado);
+        if(resultados.size() == 0){
+            nenhumResultado.setVisibility(View.VISIBLE);
+        } else{
+            nenhumResultado.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
     public View getView(int position, View convertView, final ViewGroup parent) {
-        rootView = (ViewGroup) parent.getRootView();
-        listaBuscaContainer = (LinearLayout) rootView.findViewById(R.id.lista_busca_container);
+
+        listaBuscaContainer = (RelativeLayout) rootView.findViewById(R.id.lista_busca_container);
 
         final ResultadoPesquisa resultadoAtual = (ResultadoPesquisa) getItem(position);
         String stringNomeBloco = resultadoAtual.getNomeBloco();

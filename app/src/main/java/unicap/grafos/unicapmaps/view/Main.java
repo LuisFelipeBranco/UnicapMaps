@@ -46,7 +46,7 @@ public class Main extends AppCompatActivity {
     private EditText inputDestino;
     private ImageView arestaView;
     private String modo = "busca";
-    private LinearLayout listaBuscaContainer;
+    private RelativeLayout listaBuscaContainer;
     private Rota rota = new Rota();
 
     @Override
@@ -81,7 +81,7 @@ public class Main extends AppCompatActivity {
         inputDestino = (EditText) findViewById(R.id.edit_text_destino);
         arestaView = (ImageView) findViewById( R.id.arestaConteiner);
 
-        listaBuscaContainer = (LinearLayout) findViewById(R.id.lista_busca_container);
+        listaBuscaContainer = (RelativeLayout) findViewById(R.id.lista_busca_container);
         ListView listViewBusca = (ListView) findViewById(R.id.listaBusca);
 
         inputPartida.addTextChangedListener(new BuscaDinamica(context, listViewBusca, inputPartida, rota, 0));

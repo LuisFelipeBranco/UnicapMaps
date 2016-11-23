@@ -21,11 +21,6 @@ import unicap.grafos.unicapmaps.model.Vertice;
  */
 public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
 
-//    private Set<Vertice> nodesSelecionados;
-//    private Set<Vertice> nodes_naoSelecionados;
-//    private Map<Vertice, Vertice> proximo;
-//    private Map<Vertice, Integer> distancia;
-
     private GrafoController controller;
     private Grafo grafo;
     private ArrayList<Integer> custos;
@@ -33,8 +28,6 @@ public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
 
     public BuscaDijkstra(GrafoController controller) {
         this.controller = controller;
-        //this.nodes = new ArrayList<Vertice>(grafo.getVertices());
-        //this.arestas = new ArrayList<Aresta>(grafo.getArestas());
         grafo = Grafo.getInstance();
     }
 
@@ -48,32 +41,18 @@ public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
         inicializar(anteriores,custos);
         custos.set(partida.getId(),0);
         fila.add(partida);
-        //nodesSelecionados = new HashSet<Vertice>();
-        //nodes_naoSelecionados = new HashSet<Vertice>();
-        //distancia = new HashMap<Vertice, Integer>();
-        //proximo = new HashMap<Vertice, Vertice>();
-        //distancia.put(partida, 0);
-        //nodes_naoSelecionados.add(partida);
+
         while (!fila.isEmpty()) {
             u = fila.get(0);
             fila.remove(0);
-
-            if(u == chegada){
-                break;
-            }
 
             for (Vertice adjacente : u.getAdjacentes()){
                 if(relaxarAresta(u,adjacente,acharDistancia(u,adjacente))) {
                     fila.add(adjacente);
                 }
             }
-//            Vertice node = acharMenor(nodes_naoSelecionados);
-//            nodesSelecionados.add(node);
-//            nodes_naoSelecionados.remove(node);
-//            caminhoMinimo(node);
         }
         retorno = varrerAnteriores(partida,chegada);
-        //retorno = escolherCaminho(destino);
         return controller.getArestasFromVertices(retorno);
     }
 
@@ -116,91 +95,12 @@ public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
         }
     }
 
-/*
-    private Vertice acharMenor(Set<Vertice> vertexes) {
-        Vertice menor = null;
-        for (Vertice vertice : vertexes) {
-            if (menor == null) {
-                menor = vertice;
-            } else {
-                if (menorDistancia(vertice) < menorDistancia(menor)) {
-                    menor = vertice;
-                }
-            }
-        }
-        return menor;
-    }
-*/
-
-/*
-    private int menorDistancia(Vertice destino) {
-        Integer d = distancia.get(destino);
-        if (d == null) {
-            return Integer.MAX_VALUE;
-        } else {
-            return d;
-        }
-    }
-*/
-
-/*
-    private void caminhoMinimo(Vertice node) {
-        List<Vertice> adjacentes = acharVizinhos(node);
-        for (Vertice alvo : adjacentes) {
-            if (menorDistancia(alvo) > menorDistancia(node)
-                    + acharDistancia(node, alvo)) {
-                distancia.put(alvo, menorDistancia(node)
-                        + acharDistancia(node, alvo));
-                proximo.put(alvo, node);
-                nodes_naoSelecionados.add(alvo);
-            }
-        }
-    }
-*/
-
-/*
-    private boolean nosSetados(Vertice vertice) {
-        return nodesSelecionados.contains(vertice);
-    }
-*/
 
     private int acharDistancia(Vertice node, Vertice alvo) {
         Aresta aresta;
         aresta = controller.getArestaFromVertices(node,alvo);
         return aresta.getCusto();
     }
-
-/*
-    private List<Vertice> acharVizinhos(Vertice node) {
-        List<Vertice> vizinhos = new ArrayList<Vertice>();
-        for (Aresta aresta : arestas) {
-            if (aresta.getB().equals(node)
-                    && !nosSetados(aresta.getB())) {
-                vizinhos.add(aresta.getB());
-            }
-        }
-        return vizinhos;
-    }
-*/
-
-/*
-    public LinkedList<Vertice> escolherCaminho(Vertice alvo) {
-        LinkedList<Vertice> caminho = new LinkedList<Vertice>();
-        Vertice passo = alvo;
-        // VERIFICANDO SE O CAMINHO EXISTE !!
-        if (proximo.get(passo) == null) {
-            return null;
-        }
-        caminho.add(passo);
-        while (proximo.get(passo) != null) {
-            passo = proximo.get(passo);
-            caminho.add(passo);
-        }
-        // PARA COLOCAR NA ORDEM CORRETA O CAMINHO !!
-        Collections.reverse(caminho);
-        return caminho;
-    }
-*/
 
     private class ArrayOrdenado extends ArrayList<Vertice>{
         public ArrayOrdenado() {

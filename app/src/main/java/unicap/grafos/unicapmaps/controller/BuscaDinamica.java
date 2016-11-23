@@ -27,17 +27,17 @@ public class BuscaDinamica implements TextWatcher {
     private EditText editTextSource;
     private ArrayList<ResultadoPesquisa> resultado;
     private AdapterResultadoPesquisa adapter;
-    private LinearLayout listViewContainer;
+    private RelativeLayout listViewContainer;
     private Rota rota;
     private int alvo;
-    //private BuscaInfo buscador;
+    private PesquisaBlocos buscador;
 
 
     public BuscaDinamica(Context context, ListView listView, EditText source, Rota rota, int alvo) {
         this.context = context;
         this.listView = listView;
         this.editTextSource = source;
-        listViewContainer = (LinearLayout) listView.getParent();
+        listViewContainer = (RelativeLayout) listView.getParent();
         this.rota = rota;
         this.alvo = alvo;
         //buscador = new BuscaInfo();
@@ -61,8 +61,9 @@ public class BuscaDinamica implements TextWatcher {
     @Override
     public void afterTextChanged(Editable s) {
         if(!stringInput.isEmpty() && editTextSource.hasFocus()){
-            //resultado = buscador.buscar(stringInput);
-            resultado = criarResultadosFalsos();
+            buscador = new PesquisaBlocos();
+            resultado = buscador.pesquisaInfo(stringInput);
+            //resultado = criarResultadosFalsos();
             if(resultado == null){
                 //nenhum resultado encontrado
                 resetListView();
