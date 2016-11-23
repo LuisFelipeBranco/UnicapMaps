@@ -62,7 +62,7 @@ public class GrafoCreator {
         matrizAdjacencias = Dados.getMatrizAdjacencias();
         coordenadas = Dados.getCoordenadasVertices();
         coordenadasComplementares = Dados.getCoordenadasComplementares();
-        nomesBlocos = Dados.getNomesBlocos();
+        nomesBlocos = InfoBlocos.getNomesBlocos();
         grauMatriz = matrizAdjacencias.length;
         custosArestas = Dados.getCustos();
         trajetos = DadosTrajetosArestas.getTrajetos();
