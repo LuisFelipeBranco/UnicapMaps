@@ -46,6 +46,10 @@ public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
             u = fila.get(0);
             fila.remove(0);
 
+            if(u == chegada){
+                break;
+            }
+
             for (Vertice adjacente : u.getAdjacentes()){
                 if(relaxarAresta(u,adjacente,acharDistancia(u,adjacente))) {
                     fila.add(adjacente);
@@ -115,7 +119,7 @@ public class BuscaDijkstra implements InterfaceBuscaEmGrafo {
             }
             else{
                 for (int i = 0; i < size();i++){
-                    verticeTemp = grafo.getVertice(i);
+                    verticeTemp = get(i);
                     if(custos.get(novo.getId()) < custos.get(verticeTemp.getId())){
                         super.add(i,novo);
                         return true;
