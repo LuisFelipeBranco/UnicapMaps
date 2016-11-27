@@ -3,7 +3,7 @@ package unicap.grafos.unicapmaps.dao;
 /**
  * Created by Cais Automação on 06/10/2016. project Unicap Maps
  */
-class Dados {
+public class Dados {
 
 
     private static int matrizAdjacencias[][] = { //matriz nova com arestas simples. precisa passar o procedimento de espelhamento
@@ -114,7 +114,7 @@ class Dados {
         {{812,1176}, {812,1044}}                                                          //id:46 (Estacionamento estudantes -> Bloco T)
     };
 
-    private static int[] custos = {
+    /*private static int[] custos = {
        11,     //id:0  (Bloco A -> Bloco B)
        30,     //id:1  (Bloco A -> Bloco D)
        124,    //id:2  (Bloco A -> Bloco E)
@@ -163,7 +163,7 @@ class Dados {
        50,     //id:45 (Bloco R -> Jardim)
        115     //id:46 (Estacionamento estudantes -> Bloco T)
     };
-
+*/
 
 
     static int[][] getCoordenadasVertices() {
@@ -179,8 +179,8 @@ class Dados {
         return coordenadasComplementares;
     }
 
-    static int[] getCustos() {
+   /* static int[] getCustos() {
         return custos;
-    }
+    }*/
 }
 

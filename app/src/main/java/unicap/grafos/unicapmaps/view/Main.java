@@ -1,5 +1,6 @@
 package unicap.grafos.unicapmaps.view;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import unicap.grafos.unicapmaps.AlgoritmosGrafo.ColoracaoWelshPowell;
 import unicap.grafos.unicapmaps.R;
@@ -114,6 +117,7 @@ public class Main extends AppCompatActivity {
         TextView infoPartida = (TextView) infoTrajeto.getChildAt(0);
         TextView infoDestino = (TextView) infoTrajeto.getChildAt(1);
         TextView infoDistancia = (TextView) infoTrajeto.getChildAt(2);
+        Button botaoTrajeto = (Button) infoTrajeto.getChildAt(3);
 
         String nomePartida = grafo.getVertice(rota.getPartida()).getNome();
         String nomeDestino = grafo.getVertice(rota.getDestino()).getNome();
@@ -122,6 +126,57 @@ public class Main extends AppCompatActivity {
         infoPartida.setText("Partida: "+ nomePartida);
         infoDestino.setText("> Destino: "+ nomeDestino);
         infoDistancia.setText("Distância: " + distancia + " metros");
+
+        final Dialog trajetoDialog = new Dialog(this);
+        trajetoDialog.setContentView(R.layout.dialog_trajeto);
+
+        if(caminho == null || caminho.size() == 0){
+            trajetoDialog.setTitle("Fique onde está.");
+        } else{
+            trajetoDialog.setTitle("Descrição do trajeto");
+            preencherDialogTrajeto(caminho, trajetoDialog);
+        }
+
+        botaoTrajeto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                trajetoDialog.show();
+            }
+        });
+
+    }
+
+    private void preencherDialogTrajeto(ArrayList<Aresta> caminho, Dialog trajetoDialog) {
+        //CarregarTrajetos carregarTrajetos = new CarregarTrajetos();
+        //ArrayList<String> infoTrajeto = carregarTrajetos.buscarTrajeto(caminho);
+        ArrayList<String> infoTrajeto = new ArrayList();
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        infoTrajeto.add("linha 1");
+        infoTrajeto.add("linha 2");
+        infoTrajeto.add("linha 3");
+        infoTrajeto.add("linha 4");
+        ListView listViewTrajeto = (ListView) trajetoDialog.findViewById(R.id.list_view_trajeto);
+        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, infoTrajeto);
+        listViewTrajeto.setAdapter(adapter);
     }
 
     private ArrayList<Aresta> mostrarCaminho() {

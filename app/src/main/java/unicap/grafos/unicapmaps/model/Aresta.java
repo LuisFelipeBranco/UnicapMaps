@@ -22,18 +22,6 @@ public class Aresta {
         coordenadas = new ArrayList<>();
     }
 
-    private Vertice getAdjacente(Vertice vertice){
-        if(vertice == null){
-            //exceção
-            return null;
-        }else{
-            if(vertice == A){
-                return B;
-            }else{
-                return A;
-            }
-        }
-    }
     public String[] getDescricao() {
         return descricao;
     }

@@ -6,6 +6,7 @@ import java.util.Collections;
 import unicap.grafos.unicapmaps.controller.GrafoController;
 import unicap.grafos.unicapmaps.model.Aresta;
 import unicap.grafos.unicapmaps.model.Vertice;
+import unicap.grafos.unicapmaps.util.Util;
 
 import static java.lang.StrictMath.abs;
 
@@ -99,7 +100,8 @@ public class BuscaAEstrela implements InterfaceBuscaEmGrafo {
         x2 = b.getCoordenadas().getX();
         y2 = b.getCoordenadas().getY();
 
-        return abs(x1 - x2) + abs(y1 - y2);
+        //return abs(x1 - x2) + abs(y1 - y2);
+        return Util.calculaDistancia(x1, y1, x2, y2);
     }
 
     private class FilaOrdenada extends ArrayList<Vertice> {
