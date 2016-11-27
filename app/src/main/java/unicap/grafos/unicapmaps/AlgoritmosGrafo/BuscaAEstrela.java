@@ -26,71 +26,38 @@ public class BuscaAEstrela implements InterfaceBuscaEmGrafo {
     @Override
     public ArrayList<Aresta> buscar(Vertice partida, Vertice chegada) {
         FilaOrdenada fila = new FilaOrdenada();
-
         ArrayList<Vertice> caminho = new ArrayList();
+        int custoAtual;
         anteriores = new ArrayList(); //came_from
         custos = new ArrayList();  //cost_so_far
 
         Vertice atual;
 
-        for(int i = 0; i < controller.getTotalVertices(); i++){
-            custos.add(Integer.MAX_VALUE);
-            anteriores.add(null);
-        }
+        UtilBuscas.inicializar(anteriores, custos);
         custos.set(partida.getId(), 0);
 
         fila.add(partida, Integer.MAX_VALUE);
 
         while(!(fila.isEmpty())){
             atual = fila.peek();
+
+            if(atual == chegada){
+                break;
+            }
+
             for(Vertice adj: atual.getAdjacentes()){
-                if(relaxarAresta(atual, adj, acharDistancia(atual, adj))){
+                custoAtual = UtilBuscas.acharDistancia(controller, atual, adj);
+                if(UtilBuscas.relaxarAresta(custos, atual, adj, custoAtual)){
                     int peso = custos.get(adj.getId()) + heuristica(chegada, adj);
                     fila.add(adj, peso);
                     anteriores.set(adj.getId(), atual);
                 }
             }
         }
-        caminho = varrerAnteriores(partida, chegada);
-
+        caminho = UtilBuscas.varrerAnteriores(anteriores, partida, chegada);
         return controller.getArestasFromVertices(caminho);
     }
 
-    private boolean relaxarAresta(Vertice A, Vertice B, int custo) {
-        int idA, idB, novoCusto;
-        idA = A.getId();
-        idB = B.getId();
-        if(custos.get(idA) == Integer.MAX_VALUE){
-            novoCusto = custos.get(idA);
-        } else{
-            novoCusto = custos.get(idA) + custo;
-        }
-        if(novoCusto < custos.get(idB)){
-            custos.set(idB, novoCusto);
-            anteriores.set(idB, A);
-            return true;
-        } else{
-            return false;
-        }
-    }
-
-    private ArrayList<Vertice> varrerAnteriores(Vertice partida,Vertice chegada){
-        ArrayList<Vertice> caminho = new ArrayList();
-        Vertice temp = chegada;
-        while(temp != partida){
-            caminho.add(temp);
-            temp = anteriores.get(temp.getId());
-        }
-        caminho.add(partida);
-        Collections.reverse(caminho);
-        return caminho;
-    }
-
-    private int acharDistancia(Vertice node, Vertice alvo) {
-        Aresta aresta;
-        aresta = controller.getArestaFromVertices(node,alvo);
-        return aresta.getCusto();
-    }
 
     public int heuristica (Vertice a, Vertice b) {
         int x1, x2, y1, y2;
