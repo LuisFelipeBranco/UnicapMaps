@@ -108,34 +108,6 @@ public class Main extends AppCompatActivity {
         arestaView.setVisibility(View.VISIBLE);
     }
 
-    /*private boolean validarInputs() {
-        String inputTextPartida = inputPartida.getText().toString().trim();
-        String inputTextDestino = inputDestino.getText().toString().trim();
-        Boolean erro = false;
-
-        try{
-            idVerticeInicial = Integer.parseInt(inputTextPartida);
-        } catch (NumberFormatException e){
-            erro = true;
-        }
-
-        try{
-            idVerticeFinal = Integer.parseInt(inputTextDestino);
-        } catch (NumberFormatException e){
-            erro = true;
-        }
-
-        if(erro){
-            idVerticeInicial = -1;
-            idVerticeFinal = -1;
-        }
-
-
-        if(grafo.getVertice(idVerticeInicial) != null && grafo.getVertice(idVerticeFinal) != null){
-            return true;
-        }
-        return false;
-    }*/
 
     private void showInfo(ArrayList<Aresta> caminho) {
         LinearLayout infoTrajeto = (LinearLayout) findViewById(R.id.info_trajeto);
