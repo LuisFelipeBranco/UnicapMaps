@@ -12,7 +12,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,12 +22,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import unicap.grafos.unicapmaps.AlgoritmosGrafo.ColoracaoWelshPowell;
 import unicap.grafos.unicapmaps.R;
-import unicap.grafos.unicapmaps.controller.BuscaDinamica;
+import unicap.grafos.unicapmaps.controller.AdapterTrajeto;
 import unicap.grafos.unicapmaps.controller.GrafoController;
+import unicap.grafos.unicapmaps.controller.PesquisaDinamica;
 import unicap.grafos.unicapmaps.model.Aresta;
 import unicap.grafos.unicapmaps.model.Grafo;
 import unicap.grafos.unicapmaps.model.Rota;
@@ -87,10 +86,9 @@ public class Main extends AppCompatActivity {
         listaBuscaContainer = (RelativeLayout) findViewById(R.id.lista_busca_container);
         ListView listViewBusca = (ListView) findViewById(R.id.listaBusca);
 
-        inputPartida.addTextChangedListener(new BuscaDinamica(context, listViewBusca, inputPartida, rota, 0));
-        inputDestino.addTextChangedListener(new BuscaDinamica(context, listViewBusca, inputDestino, rota, 1));
+        inputPartida.addTextChangedListener(new PesquisaDinamica(context, listViewBusca, inputPartida, rota, 0));
+        inputDestino.addTextChangedListener(new PesquisaDinamica(context, listViewBusca, inputDestino, rota, 1));
     }
-
 
     public void tracarRota() {
         if(!rota.isComplete()){
@@ -110,7 +108,6 @@ public class Main extends AppCompatActivity {
         esconderViews(false);
         arestaView.setVisibility(View.VISIBLE);
     }
-
 
     private void showInfo(ArrayList<Aresta> caminho) {
         LinearLayout infoTrajeto = (LinearLayout) findViewById(R.id.info_trajeto);
@@ -150,38 +147,18 @@ public class Main extends AppCompatActivity {
         //CarregarTrajetos carregarTrajetos = new CarregarTrajetos();
         //ArrayList<String> infoTrajeto = carregarTrajetos.buscarTrajeto(caminho);
         ArrayList<String> infoTrajeto = new ArrayList();
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
-        infoTrajeto.add("linha 1");
-        infoTrajeto.add("linha 2");
-        infoTrajeto.add("linha 3");
-        infoTrajeto.add("linha 4");
+        /*for(Aresta aresta: caminho){
+            for(String descricao: aresta.getDescricao()){
+                infoTrajeto.add(descricao);
+            }
+        }*/
         ListView listViewTrajeto = (ListView) trajetoDialog.findViewById(R.id.list_view_trajeto);
-        ArrayAdapter<String> adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, infoTrajeto);
+        AdapterTrajeto adapter = new AdapterTrajeto(this, infoTrajeto);
         listViewTrajeto.setAdapter(adapter);
     }
 
     private ArrayList<Aresta> mostrarCaminho() {
         //caminho = buscaEscolhida;
-
         ArrayList<Aresta> caminho = grafoController.buscar(rota.getPartida(), rota.getDestino(), metodoBusca);
         if(caminho == null){
             return caminho;
@@ -232,10 +209,10 @@ public class Main extends AppCompatActivity {
 
         rota.reset();
 
-        inputPartida.setText("");
-        inputDestino.setText("");
         inputDestino.clearFocus();
         inputPartida.clearFocus();
+        inputPartida.setText("");
+        inputDestino.setText("");
         infoPartida.setText("");
         infoDestino.setText("");
         infoDistancia.setText("");

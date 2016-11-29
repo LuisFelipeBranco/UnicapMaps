@@ -1,14 +1,11 @@
 package unicap.grafos.unicapmaps.AlgoritmosGrafo;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 import unicap.grafos.unicapmaps.controller.GrafoController;
 import unicap.grafos.unicapmaps.model.Aresta;
 import unicap.grafos.unicapmaps.model.Vertice;
 import unicap.grafos.unicapmaps.util.Util;
-
-import static java.lang.StrictMath.abs;
 
 /**
  * Created by Cais Automação on 11/11/2016. project UnicapMaps

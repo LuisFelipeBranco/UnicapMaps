@@ -26,7 +26,7 @@ public class InfoBlocos {
         infoBlocos.add(M);      //12 M = Biblioteca
         infoBlocos.add(N);      //13 N
         infoBlocos.add(O);      //14 O
-        infoBlocos.add(P);      //15 P = Estacionamento professores
+        infoBlocos.add(P);      //15 P = Estacionamento funcionários
         infoBlocos.add(Q);      //16 Q
         infoBlocos.add(R);      //17 R
         infoBlocos.add(S);      //18 S = Estacionamento estudantes
@@ -53,7 +53,7 @@ public class InfoBlocos {
             "Biblioteca",
             "Bloco N",
             "Bloco O",
-            "Estacionamento professores",
+            "Estacionamento funcionários",
             "Bloco Q",
             "Bloco R",
             "Estacionamento estudantes",

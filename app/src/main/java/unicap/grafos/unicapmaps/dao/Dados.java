@@ -23,7 +23,7 @@ public class Dados {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0}, //12 M = Biblioteca
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0}, //13 N
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}, //14 O
-            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0}, //15 P = Estacionamento professores
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0}, //15 P = Estacionamento funcionários
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0}, //16 Q
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0}, //17 R
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0}, //18 S = Estacionamento estudantes
@@ -53,7 +53,7 @@ public class Dados {
             { 451,989},  //12 M = Biblioteca
             { 993,1172}, //13 N
             {1086,1172}, //14 O
-            { 516,707},  //15 P = Estacionamento professores
+            { 516,707},  //15 P = Estacionamento funcionários
             { 752,664},  //16 Q
             { 659,1002}, //17 R
             { 579,1176}, //18 S = Estacionamento estudantes
@@ -75,9 +75,9 @@ public class Dados {
         {{605,707}, {605,607},{664,607}},                                                 //id:7  (Bloco A -> Quadra de esportes)
         {{587,877},{659,877},{659,963}, {584,963},{568,969},{557,980}},                   //id:8  (Bloco A -> Jardim)
         {{438,810}},                                                                      //id:9  (Bloco B -> Bloco C)
-        {},                                                                               //id:10 (Bloco B -> Estacionamento professores)
+        {},                                                                               //id:10 (Bloco B -> Estacionamento funcionários)
         {},                                                                               //id:11 (Bloco C -> Capela)
-        {},                                                                               //id:12 (Bloco C -> Estacionamento professores)
+        {},                                                                               //id:12 (Bloco C -> Estacionamento funcionários)
         {{812,508}},                                                                      //id:13 (Bloco E -> Bloco F)
         {{812,508},{812,1124}},                                                           //id:14 (Bloco E -> Bloco G)
         {{447,508}},                                                                      //id:15 (Bloco E -> Capela)
@@ -97,7 +97,7 @@ public class Dados {
         {{572,1086}, {522,1086},{522,1066},{543,1011}},                                   //id:29 (Bloco G -> Jardim)
         {},                                                                               //id:30 (Bloco G -> Bloco G4)
         {{447,508},{447,492},{483,492},{493,442}},                                        //id:31 (Capela -> Bloco I)
-        {},                                                                               //id:32 (Capela -> Estacionamento professores)
+        {},                                                                               //id:32 (Capela -> Estacionamento funcionários)
         {{902,442},{884,271}},                                                            //id:33 (Bloco I -> Bloco J)
         {{863,1354}},                                                                     //id:34 (Bloco K -> Bloco L)
         {{1143,1354},{1135,1172}},                                                        //id:35 (Bloco K -> Bloco O)
@@ -107,7 +107,7 @@ public class Dados {
         {{466,989},{480,993},{486,992},{501,999},{522,1003}},                             //id:39 (Biblioteca -> Jardim)
         {},                                                                               //id:40 (Bloco N -> Bloco O)
         {{863,1172}},                                                                     //id:41 (Bloco N -> Bloco T)
-        {{575,607},{664,607}},                                                            //id:42 (Estacionamento professores -> Quadra de esportes)
+        {{575,607},{664,607}},                                                            //id:42 (Estacionamento funcionários -> Quadra de esportes)
         {{721,636}},                                                                      //id:43 (Bloco Q -> Quadra de esportes)
         {{659,877},{812,877},{812,1044}},                                                 //id:44 (Bloco R -> Bloco T)
         {{659,963},{584,963},{568,969},{557,980}},                                        //id:45 (Bloco R -> Jardim)
@@ -125,9 +125,9 @@ public class Dados {
        94,     //id:7  (Bloco A -> Quadra de esportes)
        117,    //id:8  (Bloco A -> Jardim)
        68,     //id:9  (Bloco B -> Bloco C)
-       34,     //id:10 (Bloco B -> Estacionamento professores)
+       34,     //id:10 (Bloco B -> Estacionamento funcionários)
        29,     //id:11 (Bloco C -> Capela)
-       28,     //id:12 (Bloco C -> Estacionamento professores)
+       28,     //id:12 (Bloco C -> Estacionamento funcionários)
        256,    //id:13 (Bloco E -> Bloco F)
        316,    //id:14 (Bloco E -> Bloco G)
        126,    //id:15 (Bloco E -> Capela)
@@ -147,7 +147,7 @@ public class Dados {
        60,     //id:29 (Bloco G -> Jardim)
        68,     //id:30 (Bloco G -> Bloco G4)
        128,    //id:31 (Capela -> Bloco I)
-       35,     //id:32 (Capela -> Estacionamento professores)
+       35,     //id:32 (Capela -> Estacionamento funcionários)
        95,     //id:33 (Bloco I -> Bloco J)
        98,     //id:34 (Bloco K -> Bloco L)
        50,     //id:35 (Bloco K -> Bloco O)
@@ -157,7 +157,7 @@ public class Dados {
        23,     //id:39 (Biblioteca -> Jardim)
        29,     //id:40 (Bloco N -> Bloco O)
        70,     //id:41 (Bloco N -> Bloco T)
-       80,     //id:42 (Estacionamento professores -> Quadra de esportes)
+       80,     //id:42 (Estacionamento funcionários -> Quadra de esportes)
        22,     //id:43 (Bloco Q -> Quadra de esportes)
        168,    //id:44 (Bloco R -> Bloco T)
        50,     //id:45 (Bloco R -> Jardim)

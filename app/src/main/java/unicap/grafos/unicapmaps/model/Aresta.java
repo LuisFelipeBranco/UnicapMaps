@@ -14,7 +14,6 @@ public class Aresta {
     private int custo;
     private String descricao[];
     private ArrayList<Coordenadas> coordenadas;
-    //private restrições
 
     public Aresta(Vertice a, Vertice b){
         this.A = a;

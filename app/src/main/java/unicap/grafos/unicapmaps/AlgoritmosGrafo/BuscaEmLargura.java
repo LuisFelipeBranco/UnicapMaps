@@ -42,7 +42,7 @@ public class BuscaEmLargura implements InterfaceBuscaEmGrafo {
             }
 
             for(Vertice adjAtual: current.getAdjacentes()){
-                if(!visitados.contains(adjAtual)){
+                if(!visitados.contains(adjAtual) && !fila.contains(adjAtual)){
                     fila.add(adjAtual);
                     anteriores.set(adjAtual.getId(), current);
                 }

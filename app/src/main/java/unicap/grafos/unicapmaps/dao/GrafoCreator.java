@@ -1,7 +1,4 @@
 package unicap.grafos.unicapmaps.dao;
-
-import android.util.Log;
-
 import java.util.ArrayList;
 
 import unicap.grafos.unicapmaps.controller.GrafoController;
@@ -24,7 +21,6 @@ public class GrafoCreator {
     private int grauMatriz;
     private int coordenadasComplementares[][][];
     private String nomesBlocos[];
-   //private int custosArestas[];
     private ArrayList<Trajeto> trajetos;
 
     private GrafoController grafoController;
@@ -40,10 +36,7 @@ public class GrafoCreator {
         criarVertices();
         estabelecerAdjacencias();
         configCoordArestas();
-        //grafoController.logArestas();
-        //Log.i("--", "----------------------------------------------------------");
         espelharGrafo();
-        //grafoController.logArestas();
         atribuirTrajetos();
     }
 
@@ -64,7 +57,6 @@ public class GrafoCreator {
         coordenadasComplementares = Dados.getCoordenadasComplementares();
         nomesBlocos = InfoBlocos.getNomesBlocos();
         grauMatriz = matrizAdjacencias.length;
-        //custosArestas = Dados.getCustos();
         trajetos = DadosTrajetosArestas.getTrajetos();
     }
 
@@ -80,7 +72,6 @@ public class GrafoCreator {
             ponto.setY(coordenadas[id][1]);
             novo.setCoordenadas(ponto);
             novo.setNome(nomesBlocos[id]);
-            //novo.setDescricao(descricoes[i]);
 
             grafo.addVertice(novo);
         }
@@ -95,12 +86,6 @@ public class GrafoCreator {
         //verifica cada vertice se tem adjacencias, a partir da matriz de adjacencias
         for(Vertice atual: grafo.getVertices()){
             id = atual.getId();
-
-
-            //caso considerar laços, descomentar essas duas linhas
-            //atual.addAdjacente(atual);
-            //grafo.addAresta(atual, atual);
-
 
             for(i = 0; i < grauMatriz; i++){
                 if(matrizAdjacencias[id][i] == 1){ //se tiver adjacencia, o "i" é o id do vértice adjacente
@@ -122,8 +107,6 @@ public class GrafoCreator {
         Coordenadas p;
         ArrayList<Coordenadas> pontos;
         for(Aresta aresta: grafo.getArestas()){
-
-            //aresta.setCusto(custosArestas[i]);
 
             //primeira coordenada
             p = aresta.getA().getCoordenadas();
