@@ -6,7 +6,8 @@ package unicap.grafos.unicapmaps.dao;
 public class Dados {
 
 
-    private static int matrizAdjacencias[][] = { //matriz nova com arestas simples. precisa passar o procedimento de espelhamento
+    private static int matrizAdjacencias[][] = {
+            //matriz nova com arestas simples. precisa passar o procedimento de espelhamento
           // A B C D E F G H I J K L M N O P Q R S T U V W G4
             {0,1,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,1,0,1,1,1,0,0}, //0  A
             {0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0}, //1  B
@@ -34,8 +35,6 @@ public class Dados {
             {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}  //23 G4
           // A B C D E F G H I J K L M N O P Q R S T U V W G4
     };
-
-
 
     public static int coordenadasVertices[][] = {
             { 587,810},  //0  A
@@ -65,122 +64,64 @@ public class Dados {
     };
 
     private static int coordenadasComplementares[][][] = {
-        {},                                                                               //id:0  (Bloco A -> Bloco B)
-        {{619,794}},                                                                      //id:1  (Bloco A -> Bloco D)
-        {{605,707}, {605,607},{664,607},{670,508}},                                       //id:2  (Bloco A -> Bloco E)
-        {{587,877},{812,877},{812,1124}},                                                 //id:3  (Bloco A -> Bloco F)
-        {{587,877},{812,877},{812,1124}},                                                 //id:4  (Bloco A -> Bloco G)
-        {{587,877},{659,877}},                                                            //id:5  (Bloco A -> Bloco R)
-        {{587,877},{812,877},{812,1044}},                                                 //id:6  (Bloco A -> Bloco T)
-        {{605,707}, {605,607},{664,607}},                                                 //id:7  (Bloco A -> Quadra de esportes)
+        {},                                                    //id:0  (Bloco A -> Bloco B)
+        {{619,794}},                                          //id:1  (Bloco A -> Bloco D)
+        {{605,707}, {605,607},{664,607},{670,508}},           //id:2  (Bloco A -> Bloco E)
+        {{587,877},{812,877},{812,1124}},                     //id:3  (Bloco A -> Bloco F)
+        {{587,877},{812,877},{812,1124}},                     //id:4  (Bloco A -> Bloco G)
+        {{587,877},{659,877}},                                //id:5  (Bloco A -> Bloco R)
+        {{587,877},{812,877},{812,1044}},                     //id:6  (Bloco A -> Bloco T)
+        {{605,707}, {605,607},{664,607}},                     //id:7  (Bloco A -> Quadra de esportes)
         {{587,877},{659,877},{659,963}, {584,963},{568,969},{557,980}},                   //id:8  (Bloco A -> Jardim)
-        {{438,810}},                                                                      //id:9  (Bloco B -> Bloco C)
-        {},                                                                               //id:10 (Bloco B -> Estacionamento funcionários)
-        {},                                                                               //id:11 (Bloco C -> Capela)
-        {},                                                                               //id:12 (Bloco C -> Estacionamento funcionários)
-        {{812,508}},                                                                      //id:13 (Bloco E -> Bloco F)
-        {{812,508},{812,1124}},                                                           //id:14 (Bloco E -> Bloco G)
-        {{447,508}},                                                                      //id:15 (Bloco E -> Capela)
-        {{447,508},{447,492},{483,492},{493,442}},                                        //id:16 (Bloco E -> Bloco I)
-        {{812,508},{812,877},{658,877}},                                                  //id:17 (Bloco E -> Bloco R)
-        {{812,508},{812,1044}},                                                           //id:18 (Bloco E -> Bloco T)
-        {{670,508},{664,607}},                                                            //id:19 (Bloco E -> Quadra de esportes)
-        {{863,1214}},                                                                     //id:20 (Bloco F -> Bloco L)
-        {{863,1214},{863,1172}},                                                          //id:21 (Bloco F -> Bloco N)
-        {{812,877},{659,877}},                                                            //id:22 (Bloco F -> Bloco R)
-        {{812,1176}},                                                                     //id:23 (Bloco F -> Estacionamento estudantes)
-        {{812,1044}},                                                                     //id:24 (Bloco F -> Bloco T)
+        {{438,810}},                                          //id:9  (Bloco B -> Bloco C)
+        {},                                                   //id:10 (Bloco B -> Estacionamento funcionários)
+        {},                                                   //id:11 (Bloco C -> Capela)
+        {},                                                   //id:12 (Bloco C -> Estacionamento funcionários)
+        {{812,508}},                                          //id:13 (Bloco E -> Bloco F)
+        {{812,508},{812,1124}},                               //id:14 (Bloco E -> Bloco G)
+        {{447,508}},                                          //id:15 (Bloco E -> Capela)
+        {{447,508},{447,492},{483,492},{493,442}},            //id:16 (Bloco E -> Bloco I)
+        {{812,508},{812,877},{658,877}},                      //id:17 (Bloco E -> Bloco R)
+        {{812,508},{812,1044}},                               //id:18 (Bloco E -> Bloco T)
+        {{670,508},{664,607}},                                //id:19 (Bloco E -> Quadra de esportes)
+        {{863,1214}},                                         //id:20 (Bloco F -> Bloco L)
+        {{863,1214},{863,1172}},                              //id:21 (Bloco F -> Bloco N)
+        {{812,877},{659,877}},                                //id:22 (Bloco F -> Bloco R)
+        {{812,1176}},                                         //id:23 (Bloco F -> Estacionamento estudantes)
+        {{812,1044}},                                         //id:24 (Bloco F -> Bloco T)
         {{572,1086},{472,1086},{472,1066},{483,1047},{484,1021},{480,1005},{468,996}},    //id:25 (Bloco G -> Biblioteca)
-        {{572,1086}, {663,1052}},                                                         //id:26 (Bloco G -> Bloco R)
-        {},                                                                               //id:27 (Bloco G -> Estacionamento estudantes)
-        {{812,1124},{812,1044}},                                                          //id:28 (Bloco G -> Bloco T)
-        {{572,1086}, {522,1086},{522,1066},{543,1011}},                                   //id:29 (Bloco G -> Jardim)
-        {},                                                                               //id:30 (Bloco G -> Bloco G4)
-        {{447,508},{447,492},{483,492},{493,442}},                                        //id:31 (Capela -> Bloco I)
-        {},                                                                               //id:32 (Capela -> Estacionamento funcionários)
-        {{902,442},{884,271}},                                                            //id:33 (Bloco I -> Bloco J)
-        {{863,1354}},                                                                     //id:34 (Bloco K -> Bloco L)
-        {{1143,1354},{1135,1172}},                                                        //id:35 (Bloco K -> Bloco O)
-        {{1016,1354}},                                                                    //id:36 (Bloco K -> Bloco W)
-        {{863,1172}},                                                                     //id:37 (Bloco L -> Bloco N)
-        {{863,1354},{1016,1354}},                                                         //id:38 (Bloco L -> Bloco W)
-        {{466,989},{480,993},{486,992},{501,999},{522,1003}},                             //id:39 (Biblioteca -> Jardim)
-        {},                                                                               //id:40 (Bloco N -> Bloco O)
-        {{863,1172}},                                                                     //id:41 (Bloco N -> Bloco T)
-        {{575,607},{664,607}},                                                            //id:42 (Estacionamento funcionários -> Quadra de esportes)
-        {{721,636}},                                                                      //id:43 (Bloco Q -> Quadra de esportes)
-        {{659,877},{812,877},{812,1044}},                                                 //id:44 (Bloco R -> Bloco T)
-        {{659,963},{584,963},{568,969},{557,980}},                                        //id:45 (Bloco R -> Jardim)
-        {{812,1176}, {812,1044}}                                                          //id:46 (Estacionamento estudantes -> Bloco T)
+        {{572,1086}, {663,1052}},                             //id:26 (Bloco G -> Bloco R)
+        {},                                                   //id:27 (Bloco G -> Estacionamento estudantes)
+        {{812,1124},{812,1044}},                              //id:28 (Bloco G -> Bloco T)
+        {{572,1086}, {522,1086},{522,1066},{543,1011}},       //id:29 (Bloco G -> Jardim)
+        {},                                                   //id:30 (Bloco G -> Bloco G4)
+        {{447,508},{447,492},{483,492},{493,442}},            //id:31 (Capela -> Bloco I)
+        {},                                                   //id:32 (Capela -> Estacionamento funcionários)
+        {{902,442},{884,271}},                                //id:33 (Bloco I -> Bloco J)
+        {{863,1354}},                                         //id:34 (Bloco K -> Bloco L)
+        {{1143,1354},{1135,1172}},                            //id:35 (Bloco K -> Bloco O)
+        {{1016,1354}},                                        //id:36 (Bloco K -> Bloco W)
+        {{863,1172}},                                         //id:37 (Bloco L -> Bloco N)
+        {{863,1354},{1016,1354}},                             //id:38 (Bloco L -> Bloco W)
+        {{466,989},{480,993},{486,992},{501,999},{522,1003}}, //id:39 (Biblioteca -> Jardim)
+        {},                                                   //id:40 (Bloco N -> Bloco O)
+        {{863,1172}},                                         //id:41 (Bloco N -> Bloco T)
+        {{575,607},{664,607}},                                //id:42 (Estacionamento funcionários -> Quadra de esportes)
+        {{721,636}},                                          //id:43 (Bloco Q -> Quadra de esportes)
+        {{659,877},{812,877},{812,1044}},                     //id:44 (Bloco R -> Bloco T)
+        {{659,963},{584,963},{568,969},{557,980}},            //id:45 (Bloco R -> Jardim)
+        {{812,1176}, {812,1044}}                              //id:46 (Estacionamento estudantes -> Bloco T)
     };
-
-    /*private static int[] custos = {
-       11,     //id:0  (Bloco A -> Bloco B)
-       30,     //id:1  (Bloco A -> Bloco D)
-       124,    //id:2  (Bloco A -> Bloco E)
-       380,    //id:3  (Bloco A -> Bloco F)
-       270,    //id:4  (Bloco A -> Bloco G)
-       92,     //id:5  (Bloco A -> Bloco R)
-       190,    //id:6  (Bloco A -> Bloco T)
-       94,     //id:7  (Bloco A -> Quadra de esportes)
-       117,    //id:8  (Bloco A -> Jardim)
-       68,     //id:9  (Bloco B -> Bloco C)
-       34,     //id:10 (Bloco B -> Estacionamento funcionários)
-       29,     //id:11 (Bloco C -> Capela)
-       28,     //id:12 (Bloco C -> Estacionamento funcionários)
-       256,    //id:13 (Bloco E -> Bloco F)
-       316,    //id:14 (Bloco E -> Bloco G)
-       126,    //id:15 (Bloco E -> Capela)
-       192,    //id:16 (Bloco E -> Bloco I)
-       250,    //id:17 (Bloco E -> Bloco R)
-       225,    //id:18 (Bloco E -> Bloco T)
-       64,     //id:19 (Bloco E -> Quadra de esportes)
-       36,     //id:20 (Bloco F -> Bloco L)
-       65,     //id:21 (Bloco F -> Bloco N)
-       197,    //id:22 (Bloco F -> Bloco R)
-       93,     //id:23 (Bloco F -> Estacionamento estudantes)
-       47,     //id:24 (Bloco F -> Bloco T)
-       72,     //id:25 (Bloco G -> Biblioteca)
-       40,     //id:26 (Bloco G -> Bloco R)
-       12,     //id:27 (Bloco G -> Estacionamento estudantes)
-       104,    //id:28 (Bloco G -> Bloco T)
-       60,     //id:29 (Bloco G -> Jardim)
-       68,     //id:30 (Bloco G -> Bloco G4)
-       128,    //id:31 (Capela -> Bloco I)
-       35,     //id:32 (Capela -> Estacionamento funcionários)
-       95,     //id:33 (Bloco I -> Bloco J)
-       98,     //id:34 (Bloco K -> Bloco L)
-       50,     //id:35 (Bloco K -> Bloco O)
-       32,     //id:36 (Bloco K -> Bloco W)
-       84,     //id:37 (Bloco L -> Bloco N)
-       84,     //id:38 (Bloco L -> Bloco W)
-       23,     //id:39 (Biblioteca -> Jardim)
-       29,     //id:40 (Bloco N -> Bloco O)
-       70,     //id:41 (Bloco N -> Bloco T)
-       80,     //id:42 (Estacionamento funcionários -> Quadra de esportes)
-       22,     //id:43 (Bloco Q -> Quadra de esportes)
-       168,    //id:44 (Bloco R -> Bloco T)
-       50,     //id:45 (Bloco R -> Jardim)
-       115     //id:46 (Estacionamento estudantes -> Bloco T)
-    };
-*/
-
 
     static int[][] getCoordenadasVertices() {
         return coordenadasVertices;
     }
-
     static int[][] getMatrizAdjacencias() {
         return matrizAdjacencias;
     }
-
-
     static int[][][] getCoordenadasComplementares() {
         return coordenadasComplementares;
     }
 
-   /* static int[] getCustos() {
-        return custos;
-    }*/
 }
 

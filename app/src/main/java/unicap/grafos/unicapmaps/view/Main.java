@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import unicap.grafos.unicapmaps.AlgoritmosGrafo.ColoracaoWelshPowell;
 import unicap.grafos.unicapmaps.R;
 import unicap.grafos.unicapmaps.controller.AdapterTrajeto;
+import unicap.grafos.unicapmaps.controller.CarregarTrajetos;
 import unicap.grafos.unicapmaps.controller.GrafoController;
 import unicap.grafos.unicapmaps.controller.PesquisaDinamica;
 import unicap.grafos.unicapmaps.model.Aresta;
@@ -144,14 +145,8 @@ public class Main extends AppCompatActivity {
     }
 
     private void preencherDialogTrajeto(ArrayList<Aresta> caminho, Dialog trajetoDialog) {
-        //CarregarTrajetos carregarTrajetos = new CarregarTrajetos();
-        //ArrayList<String> infoTrajeto = carregarTrajetos.buscarTrajeto(caminho);
-        ArrayList<String> infoTrajeto = new ArrayList();
-        /*for(Aresta aresta: caminho){
-            for(String descricao: aresta.getDescricao()){
-                infoTrajeto.add(descricao);
-            }
-        }*/
+        CarregarTrajetos carregarTrajetos = new CarregarTrajetos();
+        ArrayList<String> infoTrajeto = carregarTrajetos.buscarTrajeto(caminho);
         ListView listViewTrajeto = (ListView) trajetoDialog.findViewById(R.id.list_view_trajeto);
         AdapterTrajeto adapter = new AdapterTrajeto(this, infoTrajeto);
         listViewTrajeto.setAdapter(adapter);
